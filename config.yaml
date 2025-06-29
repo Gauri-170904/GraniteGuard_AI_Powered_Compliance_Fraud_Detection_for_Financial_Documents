@@ -1,0 +1,60 @@
+# IBM watsonx.ai Configuration
+# IBM TechXchange Dev Day Hackathon - GraniteGuard AI
+
+watsonx:
+  # IBM Cloud endpoint URL (Dallas region for hackathon)
+  url: "https://us-south.ml.cloud.ibm.com"
+  
+  # Your API key from IBM Cloud
+  api_key: "tmIPasR2wPur6WaTQd0efeli3BW5xi5vdaIb4IKtG-ck"
+  
+  # Your project ID from watsonx.ai
+  project_id: "62d2535f-5325-4538-a297-ccb7b4789b72"
+
+# IBM Granite Model Configuration
+model:
+  # Best available Granite model for compliance and fraud detection
+  model_id: "ibm/granite-3-8b-instruct"
+  
+  # Alternative models you can use:
+  # - "ibm/granite-3-3-8b-instruct" (also good)
+  # - "ibm/granite-8b-instruct-v2" (faster, smaller)
+  # - "ibm/granite-13b-instruct-v2" (deprecated - will be removed 2025-10-15)
+  # - "ibm/granite-4-0-tiny-preview" (4.0 preview)
+
+# Application Settings
+app:
+  # Flask application settings
+  debug: true
+  host: "0.0.0.0"
+  port: 5000
+  
+  # File upload settings
+  max_file_size: 16  # MB
+  allowed_extensions: [".pdf", ".docx", ".xlsx", ".xls", ".csv"]
+  
+  # Upload directory
+  upload_folder: "uploads"
+  
+  # Report output directory
+  report_folder: "reports"
+
+# Analysis Settings
+analysis:
+  # Compliance checking parameters
+  compliance:
+    max_tokens: 2048
+    temperature: 0.1  # Lower temperature for more focused analysis
+    
+  # Fraud detection parameters
+  fraud:
+    max_tokens: 2048
+    temperature: 0.2  # Slightly higher for pattern recognition
+
+# Security Settings
+security:
+  # Session timeout (minutes)
+  session_timeout: 30
+  
+  # File cleanup after processing (hours)
+  cleanup_after: 24
